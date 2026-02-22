@@ -1,0 +1,44 @@
+﻿# Retrieval-Augmented Generation (RAG)
+
+Retrieval-Augmented Generation (RAG) is a powerful technique that combines the strengths of retrieval-based and generation-based approaches in natural language processing.
+
+## What is RAG?
+
+RAG combines:
+1. Retrieval of relevant context from a knowledge base (vector database)
+2. Generation using an LLM conditioned on that retrieved context
+
+This helps the model answer with grounded, domain-specific information rather than relying solely on its training data.
+
+## How RAG Works
+
+The RAG process typically involves:
+1. User query: "What is the capital of France?"
+2. Retriever: Searches vector database for relevant documents
+3. Context: Retrieved chunks are formatted as context
+4. Prompt: "Use this context: [documents] to answer: What is the capital of France?"
+5. Generator: LLM uses context to generate accurate answer: "Paris"
+
+## Benefits of RAG
+
+- Reduces hallucination by grounding responses in actual documents
+- Allows updating knowledge without retraining the LLM
+- Supports domain-specific applications
+- Improves factual accuracy and traceability
+
+## RAG Architecture Components
+
+### Vector Database
+Stores embeddings of documents for semantic search. Examples: Pinecone, Weaviate, Milvus.
+
+### Embeddings Model
+Converts text to vectors. Examples: OpenAI embeddings, Google Gemini embeddings, Sentence Transformers.
+
+### Retriever
+Performs semantic search to find relevant documents. Usually top-k nearest neighbors.
+
+### Language Model
+Generates responses based on context. Examples: GPT-4, Claude, Gemini, Llama.
+
+### Orchestrator
+Manages the workflow. LangChain is a popular choice for this.
